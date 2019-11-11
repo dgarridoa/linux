@@ -79,7 +79,8 @@ https://medium.com/@pierangelo1982/setting-ssh-connection-to-ubuntu-on-virtualbo
   - mkdir -p 1/2/3
 - rmdir [-p] directory: remove an empty directory.
 - rm -rf directory: recursively removes directory.
-- mv old_name new_name: rename folder.
+- mv old_name new_name: rename folder/file.
+- touch file: make a file.
 - path with space: "space folder" or space\ folder.
 
 ## Permissions
@@ -92,6 +93,25 @@ With `ls -l` is possible view the permissions structure of regular files (`-`), 
 | Execute (x) | Allows the execution of a file. | Allows access to contents and metadata for entries. |
 
  There are four permission categories, user (`u`), group (`g`), other (`o`) and all (`a`). For example,`-rw-rw-r--` means that the file has permissions of reading and writing for user, reading for group and nothing for other.
+
+- groups, id -Gn: displays a user's groups.
+- chgrp: changes the group.
+- chmod: change mode command.
+  - chmod u+rwx, g+rw, o+r file
+  - chmod 764 file
+- ugoa: user category.
+- +-= add, subtract, or set permissions
+- umask: determines default permission, if no mask were used permission would be 777 for directories and 666 for files and default umask is 022.
+|                      | Directory | File |
+|----------------------|-----------|------|
+| Base Permission      | 777       | 666  |
+| Subtract Umask       | -022      | -022 |
+| Creations Permission | 755       | 644  |
+- rwx: read, write, execute.
+ - symblic: rwx, r-x, r--.
+ - binary: 111, 101, 100.
+ - decimal: 7 (4+2+1), 5 (4+0+1), 4 (4+0+0).
+ - octal: -rwxr-xr-x = 755, -rw-r--r--=644
 
 ## Environment variables
 - echo : Displays arguments or variables to the screen.
