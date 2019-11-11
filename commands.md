@@ -113,6 +113,24 @@ With `ls -l` is possible view the permissions structure of regular files (`-`), 
  - decimal: 7 (4+2+1), 5 (4+0+1), 4 (4+0+0).
  - octal: -rwxr-xr-x = 755, -rw-r--r--=644
 
+## Search
+- find [path][expression]: recursively finds files in path that match expression. If no arguments are supplied it find all files in the current directory.
+  - -name pattern: find files and directories that match pattern.
+      - find /path -name Django
+      - find /path -name *v: return all files that contains "v" in its name.
+  - -iname pattern: like -name, but ignore case (is not case sensitive).
+    - find /path -iname django
+  - -ls: performs an ls on each of the found items.
+  - -mtime days: finds files that are days old.
+    - find . -mtime +1 -mtime -5
+  - -size num: finds files that are of size num.
+    - find . -size +500M
+  - -newer file: finds files that area newer than file.
+    - find . -type d -newer file.txt:search all directories in the current path that are newer than file.txt.
+  - -exec commando {} \; : run command against all the files that are found.
+- locate pattern: faster than the find command, this queries an index (lookup table). Must be updated for find new files.
+  - locate commands.md
+
 ## Environment variables
 - echo : Displays arguments or variables to the screen.
 - $PATH: is a list of directories where a command is searched, if the command is found it will be executed else return the message command not found.
