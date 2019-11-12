@@ -36,7 +36,6 @@ https://medium.com/@pierangelo1982/setting-ssh-connection-to-ubuntu-on-virtualbo
 3. ask actual user: whoiam
 4. switch of user:su - username
 
-
 ## Basic Commands
 - ls : Lists directory contents.
 - cd : Changes the current directory.
@@ -53,7 +52,6 @@ https://medium.com/@pierangelo1982/setting-ssh-connection-to-ubuntu-on-virtualbo
 - clear : Clears the screen.
 
 ## Directories
-
 - ls empty/path: Lists directory contents.
   - -l : long listing format. information: permissions, number of links, owner name, group name, number of bytes in the file, las modification time, file name.
   - -a, --all : do not ignore entries startinh with . (hidden files)
@@ -82,6 +80,49 @@ https://medium.com/@pierangelo1982/setting-ssh-connection-to-ubuntu-on-virtualbo
 - mv old_name new_name: rename folder/file.
 - touch file: make a file.
 - path with space: "space folder" or space\ folder.
+
+## Deleting, Copying, Moving, and Renaming Files.
+  - Removing Files.
+    - rm file: remove file.
+    - rm -r dir: remove the directory and its contents recursively.
+    - rm -f file: force removal and never prompt for confirmation.
+  - Copying Files.
+    - cp source_file destination_file: copy source_file to destination_file. If destination exist is overwritten.
+    - cp src_file1 ... soruce_fileN dest_dir: copy source_files to destination_directory. If file exist in destination_directory the file is overwritten.
+    - cp -i: run in interactive mode, ask before overwrite.
+    - cp -r source_directory destination: copy src_directory recursively to destination.
+  - Moving and Renaming files.
+    - mv: move or rename files and directories.
+    - mv oldname newname.
+    - mv source destination.
+    - mv -i source destination: ask before overwrite.
+  - Sorting Data.
+    - sort file: sort text in file.
+    - -r: sort in reverse order.
+    - -u: sort unique.
+    - -k F: sort by key. F is the field number or column by default is the first column in alphabetical order.
+    - sort -ruk2 file
+  - Creating a Collection of Files.
+    - tar [-] c|x|t f tarfile [pattern]: create, extract or list contents of a tar archive using pattern, if supplied.
+    - -c: create a tar archive.
+      - tar -cf tardir.tar dir
+    - -x: extract files from the archive.
+      - tar xf path/tadir.dar
+    - -t: display the table of contents (list).
+      - tar tf tardir.tar
+      - unzip -l file.zip.
+    - -v: be verbose.
+    - -z: use compression.
+      - tar -zcf tardir.tgz dir
+    - -f file: use this file.
+  - Compressing Files To Save Space
+    - gzip: compress files.
+    - gunzip: UNcompress files.
+    - gzcat or zcat: concatenates compressed files.
+  - Disk Usage.
+    - du: estimates file usage.
+    - du -k: display sizes in kilobytes.
+    - du -h: display size in human readable format.
 
 ## Permissions
 With `ls -l` is possible view the permissions structure of regular files (`-`), directories (`d`) or symbolic links (`|`).
@@ -130,6 +171,115 @@ With `ls -l` is possible view the permissions structure of regular files (`-`), 
   - -exec commando {} \; : run command against all the files that are found.
 - locate pattern: faster than the find command, this queries an index (lookup table). Must be updated for find new files.
   - locate commands.md
+
+## Displaying the Contents of files
+- cat file: display the contents of file.
+- more file: browse through a text file.
+  - space: move to the next page.
+  - enter: move to the next line.
+- less file: more features than more.
+- head -n_lines file: output the beginning (or top) portion of file.
+- tail -n_lines file: output the ending (or bottom) portion of file.
+  - tail -f file: display data as it is being written to the file.
+- nano file: nano editor.
+- Vi - Editor
+  - vi file: vi editor.
+  - vim file: same as vi, but more features.
+  - view file: starts vim in read-only mode.
+  - vimtutor: display manual.
+    - Vi - Command mode and navigation
+      - k: up one line.
+      - j: down one line.
+      - h: left one character.
+      - l: right one word.
+      - w: right one word.
+      - b: left one word.
+      - ^: go to the beginning of the line.
+      - $: go to the end of the line.
+      - esc: exit from command mode.
+    - Vi - Insert mode
+      - i: insert at the cursor position.
+      - I: insert at the beginning of the line.
+      - a: append after the cursor position.
+      - A: append at the end of the line.
+    - Vi - Line mode
+      - :w: writes (save) the file.
+      - :w!: force the file to be saved.
+      - :q: quit.
+      - q!: quit without saving changes.
+      - wq!: write and quit.
+      - :x : sames as :wq.
+      - :n: positions the cursor at line n.
+      - :$: positions the cursor on the last line.
+      - :set nu: turn on line numbering.
+      - :set nonu: turn off line numbering.
+      - :help [subcommand]: get help.
+    - Vi Modes: Command - Esc, Insert - i I a A, Line - :.
+    - Vi - Repeating Commands by preceding it with a number:
+      - 5k= Move up a line 5 times.
+      - 80i<Text><ESC>=Insert<Text> 80 times
+        - 80i_<Esc> = Insert 80 "_" characters
+    - Vi - Deleting Text.
+      - x: delete a character.
+      - dw: delete a word.
+      - dd: delete a line.
+      - D: delete from the current position.
+    - Vi - Changing Text
+      - r: replace the current character.
+      - cw: change the current word.
+      - cc: change the current line.
+      - c$: change the text from the current position.
+      - C: sames as c$.
+      - ~: reverse the case of a character.
+    - Vi - Copying and Pasting
+      - yy: yank (copy) the current line.
+      - y <position>: yank the <position>.
+      - p: paste the most recent deleted or yanked text.
+    - Vi- Undo/Redo
+      - u: Undo.
+      - Ctrl-R: Redo.
+    - Vi - Searching.
+      - /<pattern>: start a forward search.
+        - n: move to the next item.
+        - N: move to the next previous item.
+      - ?<pattern>: start reverse search.
+        - n: move to the next item.
+        - N: move to the next previous item.
+  - Emacs editor.
+    - emacs [file]: edit file in emacs GUI.
+    - emacs -nw [file]: edit file using emcas on terminal.
+    - C-<char>:Ctrl while pressing <char>.
+    - M-<char>: "Meta" key (alt key) while pressing <char>.
+    - M-<char>: esc, then type <char>.
+    - Emacs - Commands.
+      - C-h:help.
+      - C-x C-c: exit.
+      - C-x C-s: save the file.
+      - C-h t: built-in tutorial.
+      - C-h k <key>: describe key.
+    - Emacs - Navigation.
+      - C-p: previous line.
+      - C-n: next line.
+      - C-b: backward one character.
+      - C-f: forward one character.
+      - M-f: forward one word.
+      - M-b: backward one word.
+      - C-a: go to the beginning of the line.
+      - C-e: go to the end of the line.
+      - M-<: go to the beginning of the file.
+      - M->: go to the end of the file.
+    - Emacs - Deleting Text.
+      - C-d: delete a character.
+      - M-d: delete a word.
+    - Emacs - Copying, Pasting, and Undo.
+      - C-k: kill (cut).
+      - C-y: yank (paste).
+      - C-x u: undo.
+    - Emacs - Searching.
+      - C-s: start a forward search.
+      - C-r: start a reverse search.
+    - Emacs - Repeating Commands.
+      - C-u N <command>: repeat <command> N times.
 
 ## Environment variables
 - echo : Displays arguments or variables to the screen.
