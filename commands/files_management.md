@@ -1,0 +1,50 @@
+# Deleting, Copying, Moving, and Renaming Files.
+  - Removing Files.
+    - `rm file`: remove file.
+    - `rm -f file`: force removal and never prompt for confirmation.
+  - Copying Files.
+    - `cp src_file1 ... src_fileN dest_dir1 ... dest_dirM`: copy source files to destinations dirs. If in destination the file exist it is overwritten.
+      - `-i`: run in interactive mode, ask before overwrite.
+      - `-r src_dir dest_dir`: copy source directory recursively to destination.
+  - Moving and Renaming files.
+    - `mv`: move or rename files and directories.
+      - `mv oldname newname`.
+      - `mv source destination`.
+      - `-i`: run in interactive mode, ask before overwrite.
+  - Sorting Data.
+    - `sort file`: sort text in file.
+    - `-r`: sort in reverse order.
+    - `-u`: sort unique.
+    - `-k F`: sort by key. F is the field number or column by default is the first column in alphabetical order.
+  - Creating a Collection of Files.
+    - `tar [-] c|x|t f tarfile [pattern]`: create, extract or list contents of a tar archive using pattern, if supplied.
+    - `-f file`: use this file.
+    - `-c`: create a tar archive.
+      - `tar -cf tardir.tar dir`
+    - `-x`: extract files from the archive.
+      - `tar -xf tadir.dar`
+    - `-t`: display the table of contents (list).
+      - `tar -tf tardir.tar`
+      - `unzip -l file.zip`
+    - `-v`: be verbose.
+    - `-z`: use compression.
+      - `tar -zcf tardir.tgz dir`
+  - Compressing Files To Save Space
+    - `gzip file`: compress files.
+    - `gunzip file.gz`: Uncompress files.
+    - `gzcat/zcat`: concatenates compressed files.
+  - Disk Usage.
+    - `du file/dir`: estimates file usage.
+      - `-k`: display sizes in kilobytes.
+      - `-h`: display size in human readable format.
+
+# Comparing Files
+- `diff file1 file2`: compare two files.
+  - LineNumFIle1-Action-LineNumFile2. Action = (A)dd (C)hange (D)elete.
+  - 1,3c1: display the lines 1-3 from the first file and line 1 from the second file and show (C)hanges.
+- `sdiff file1 file2`: side by side comparison.
+- `vimdiff file1 file2`: highlight differences in vim.
+  - `Ctrl-w w`: go to next window.
+  - `:q`: quit (close current window).
+  - `:qa`: quit all (close both files).
+  - `:qa!`: force quit all.

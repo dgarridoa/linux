@@ -1,0 +1,112 @@
+# Displaying the Contents of files
+- `cat file1 .. fileN`: concatenate files and print on the standard output.
+  - `-n`: number all output lines.
+- `tac file`: display the same but in reverse order.
+- `more file`: browse through a text file.
+- `less file`: more features than more.
+- `head -n lines file`: output the beginning (or top) portion of file.
+- `tail -n lines file`: output the ending (or bottom) portion of file.
+  - `-f`: output appended data as the file grows, display data as it is being written to the file.
+- `nano file`: nano editor.
+- **Vi - Editor**
+  - `vi file`: vi editor.
+  - `vim file`: same as vi, but more features.
+  - `view file`: starts vim in read-only mode.
+  - `vimtutor`: display manual.
+  - **Vi Modes**: Command - Esc, Insert - i I a A, Line - :.
+    - **Vi - Command mode and navigation**
+      - `k`: up one line.
+      - `j`: down one line.
+      - `h`: left one character.
+      - `l`: right :one character.
+      - `w`: right one word.
+      - `b`: left one word.
+      - `^`: go to the beginning of the line, alt + ^ keys twice.
+      - `$`: go to the end of the line.
+      - `esc`: exit from command mode.
+      - `gg`: move to the first line.
+      - `G`: move to the end of the file.
+    - **Vi - Insert mode**
+      - `i`: insert at the cursor position.
+      - `I`: insert at the beginning of the line.
+      - `a`: append after the cursor position.
+      - `A`: append at the end of the line.
+    - **Vi - Line mode**
+      - `:w`: writes (save) the file.
+      - `:w!`: force the file to be saved.
+      - `:q`: quit.
+      - `q!`: quit without saving changes.
+      - `wq!`: write and quit.
+      - `:x`: sames as :wq.
+      - `:n`: positions the cursor at line n.
+      - `:$`: positions the cursor on the last line.
+      - `:set nu`: turn on line numbering.
+      - `:set nonu`: turn off line numbering.
+      - `:help [subcommand]`: get help.
+    - **Vi - Repeating Commands by preceding it with a number**
+      - `5k`= Move up a line 5 times.
+      - `<N>i<Text><ESC>`=Insert<Text> N times
+      - `80i_<Esc>` = Insert 80 "\_" characters
+    - **Vi - Deleting Text**.
+      - `x`: delete a character.
+      - `dw`: delete a word.
+      - `dd`: delete a line.
+      - `D`: delete from the current position.
+    - **Vi - Changing Text**
+      - `r`: replace the current character.
+      - `cw`: change the current word.
+      - `cc`: change the current line.
+      - `c$`: change the text from the current position.
+      - `C`: sames as c$.
+      - `~`: reverse the case of a character.
+    - **Vi - Copying and Pasting**
+      - `v`: highlight text.
+      - `V`: highlight multiples line.
+      - `yy`: yank (copy) the current line.
+      - `y <position>`: yank the <position>.
+      - `p`: paste the most recent deleted or yanked text.
+    - **Vi - Undo/Redo**
+      - `u`: Undo.
+      - `Ctrl-R`: Redo.
+    - **Vi - Searching**
+      - `/<pattern>`: start a forward search.
+        - `n`: move to the next item.
+        - `N`: move to the next previous item.
+      - `?<pattern>`: start reverse search.
+        - `n`: move to the next item.
+        - `N`: move to the next previous item.
+- **Emacs editor**
+  - `emacs [file]`: edit file in emacs GUI.
+  - `emacs -nw [file]`: edit file using emcas on terminal.
+  - `C-<char>`:Ctrl while pressing <char>.
+  - `M-<char>`: "Meta" key (alt key) while pressing <char>.
+  - `M-<char>`: esc, then type <char>.
+  - **Emacs - Commands**
+    - `C-h`:help.
+    - `C-x C-c`: exit.
+    - `C-x C-s`: save the file.
+    - `C-h t`: built-in tutorial.
+    - `C-h k <key>`: describe key.
+  - **Emacs - Navigation**
+    - `C-p`: previous line.
+    - `C-n`: next line.
+    - `C-b`: backward one character.
+    - `C-f`: forward one character.
+    - `M-f`: forward one word.
+    - `M-b`: backward one word.
+    - `C-a`: go to the beginning of the line.
+    - `C-e`: go to the end of the line.
+    - `M-<`: go to the beginning of the file.
+    - `M->`: go to the end of the file.
+  - **Emacs - Deleting Text**
+    - `C-d`: delete a character.
+    - `M-d`: delete a word.
+  - **Emacs - Copying, Pasting, and Undo**
+    - `C-k`: kill (cut).
+    - `C-y`: yank (paste).
+    - `C-x u`: undo.
+  - **Emacs - Searching**
+    - `C-s`: start a forward search.
+    - `C-r`: start a reverse search.
+  - **Emacs - Repeating Commands**
+    - `C-u N <command>`: repeat <command> N times.

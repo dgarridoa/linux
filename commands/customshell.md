@@ -1,0 +1,16 @@
+# Customizing the Shell Prompt.
+- `$PS1`: environment variable in charge of prompt style.
+- `\d`: date in weekday month date format, for example, Tue May 26.
+- `\h`: hostname up to the first periord.
+- `\H`: hostname.
+- `\n`: newline, for have multiples lines in the prompt.
+- `\t`: current time in 24-hour HH:MM:SS format.
+- `\T`: current time in 12-hour HH:MM:SS format.
+- `\@`: current time in 12-hour am/pm format.
+- `\A`: current time in 24-hour HH:MM format.
+- `\u`: username of the current user.
+- `\w`: current working directory.
+- `\W`: basename of the current working directory.
+- `\$`: if the effective UID is 0, a #, otherwise a $.
+- Update $PS1 variable in .bashrc.
+  - `echo 'export PS1="[\t \u@\h]: \w\$"' >> ~/.bashrc`
