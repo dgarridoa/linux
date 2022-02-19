@@ -54,6 +54,7 @@
   - `-name pattern`: find files and directories that match pattern.
       - `find /path -name Django`
       - `find /path -name *v`: return all files that contains "v" in its name.
+      - `find . -name '*.pdf'`: find in current directory all files end with ".pdf".
   - `-iname pattern`: like -name, but ignore case (is not case sensitive).
     - `find /path -iname django`
   - `-type [arg]`: match only object of that type.

@@ -26,6 +26,8 @@
       - `esc`: exit from command mode.
       - `gg`: move to the first line.
       - `G`: move to the end of the file.
+      - `nG`: move to the n-th line.
+      - `%`: skip parentheses
     - **Vi - Insert mode**
       - `i`: insert at the cursor position.
       - `I`: insert at the beginning of the line.
@@ -35,8 +37,8 @@
       - `:w`: writes (save) the file.
       - `:w!`: force the file to be saved.
       - `:q`: quit.
-      - `q!`: quit without saving changes.
-      - `wq!`: write and quit.
+      - `:q!`: quit without saving changes.
+      - `:wq!`: write and quit.
       - `:x`: sames as :wq.
       - `:n`: positions the cursor at line n.
       - `:$`: positions the cursor on the last line.
@@ -55,16 +57,26 @@
     - **Vi - Changing Text**
       - `r`: replace the current character.
       - `cw`: change the current word.
+      - `ciw`: change the current word independent from position.
       - `cc`: change the current line.
       - `c$`: change the text from the current position.
       - `C`: sames as c$.
       - `~`: reverse the case of a character.
+      - `:%s/mpattern/rpattern/gc`: replace pattern.
+       - `g`: replace all ocurrences in line.
+       - `c`: ask before replace.
+       - `%`: replace all ocurrences.
     - **Vi - Copying and Pasting**
       - `v`: highlight text.
       - `V`: highlight multiples line.
       - `yy`: yank (copy) the current line.
       - `y <position>`: yank the <position>.
       - `p`: paste the most recent deleted or yanked text.
+    - **Vi - Navigation between files**
+      - `gd`: go to definition.
+      - `gf`: go to file.
+      - `ctrl-o`: close file definition.
+      - `ctrl-i`: redo.
     - **Vi - Undo/Redo**
       - `u`: Undo.
       - `Ctrl-R`: Redo.
